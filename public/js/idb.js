@@ -44,7 +44,10 @@ function uploadData() {
                     'Content-Type': 'application/json'
                 }
             })
-                .then(response => response.json())
+                .then(response => {
+                    alert('(Offline) Your transaction was saved!')
+                    return response.json()
+                })
                 .then(serverResponse => {
                     if(serverResponse.message) {
                         throw new Error(serverResponse);
